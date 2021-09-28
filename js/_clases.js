@@ -16,6 +16,14 @@ class Usuarios {
 
     }
 
+    mostrar_cambios(){
+        return `
+            Nombre : ${this.user_name}
+            Apellidos : ${this.user_lastName}
+            Nombre de usuario : ${this.user}
+        `
+    }
+
 }
 
 class Productos {

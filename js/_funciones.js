@@ -73,13 +73,53 @@ const validar_Datos = userLog => {
         if(cont >= 3){
             alert("Has llegado al limite de intentos, prueba más tarde");
         }else{
-            alert(`Hola ${log_User}, bienvenido!!`);
-            carrito();
+            let rta = "";
+
+            alert(`Hola ${log_User}, bienvenido!!
+                1) Editar datos de usuario.
+                2) Comprar productos.
+                3) Salir
+            `);
+
+            do{
+                rta = parseInt(prompt("¿Que desea hacer?"));
+            }while(rta != 1 && rta != 2 && rta != 3);
+
+            while(rta != 3){
+                switch(rta){
+                    case 1: 
+                        edit_user(userLog);
+                        break;
+                    case 2: 
+                        carrito();
+                        break;
+                }
+
+                alert(`Hola ${log_User}, bienvenido!!
+                    1) Editar datos de usuario.
+                    2) Comprar productos.
+                    3) Salir
+                `);
+                do{
+                    rta = parseInt(prompt("¿Que desea hacer?"));
+                }while(rta != 1 && rta != 2 && rta != 3);
+            }
         } 
     }else{
         alert("Bienvenido al panel de administración");
         productos();
     }
+}
+
+//función editar usuario
+const edit_user = user_Log => {
+    let change_name = prompt("Ingrese nombre nuevo: ");
+    let change_lastName = prompt("Ingrese apellidos nuevos: ");
+    let change_user = prompt("Ingrese nuevo nombre de usuario: ");
+    let change_pass = prompt("Ingrese nueva contraseña: ");
+
+    user_Log.editar_usuario(change_name, change_lastName, change_user, change_pass);
+    alert(user_Log.mostrar_cambios());
 }
 
 //función agregar productos
