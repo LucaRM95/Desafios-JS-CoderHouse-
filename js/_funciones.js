@@ -1,15 +1,7 @@
 'use strict';
 
-import { Productos, Usuarios } from './_clases.js';
-
-const user = 'Admin095';
-const pass = 'MI2021';
-
-let pRemeraPers = 1450;
-let pRemeraDev = 1250;
-let pRemeraCart = 1250;
-let pRemeraMI = 1150;
-let pEstampado = 975;
+import { Usuarios } from './_clases.js';
+import { BD_Productos, BD_Usuarios } from './_baseDatos.js';
 
 let pago_Total = 0;
 //Funciones
@@ -43,72 +35,102 @@ const logear_Registrar = () => {
             }
 
             const userLog = new Usuarios(user_name, user_lastName, user_nick, user_pass); 
+            BD_Usuarios.push(userLog);
 
             alert(`Gracias por registrarte en MI Indumentaria!`);
             
-            validar_Datos( userLog );
+            validar_Datos();
             break;
     }
 }
 
 //función validar usuario y contraseña
-const validar_Datos = userLog => {
+const validar_Datos = () => {
+
+    ordenar(BD_Usuarios);
+
+    BD_Usuarios.map(e => console.log(e));
+
     let log_User = prompt('Ingrese su nombre de usuario');
     let log_Pass = prompt('Ingrese su contraseña');
     let cont = 1;
 
-    if(log_User != user && log_Pass != pass){
-        while((userLog.user != log_User && userLog.pass != log_Pass) && cont < 3){
-            alert('Contraseña y/o usuario incorrecto, intente de nuevo');
+    let find_user = search_user(log_User, log_Pass);
+
+    while(find_user === undefined && cont < 3){
+        alert('Contraseña y/o usuario incorrecto, intente de nuevo');
+
+        cont++;
+
+        log_User = prompt('Ingrese su nombre de usuario');
+        log_Pass = prompt('Ingrese su contraseña');
+
+        find_user = search_user(log_User, log_Pass);
+    }
     
-            console.log(userLog);
-            console.log(log_User, log_Pass);
-    
-            cont++;
-    
-            log_User = prompt('Ingrese su nombre de usuario');
-            log_Pass = prompt('Ingrese su contraseña');
-        }
-        
-        if(cont >= 3){
-            alert("Has llegado al limite de intentos, prueba más tarde");
-        }else{
-            let rta = "";
+    if(cont >= 3){
+        alert("Has llegado al limite de intentos, prueba más tarde");
+    }else{
+        let rta = "";
+
+        alert(`Hola ${log_User}, bienvenido!!
+            1) Editar datos de usuario.
+            2) Comprar productos.
+            3) Salir
+        `);
+
+        do{
+            rta = parseInt(prompt("¿Que desea hacer?"));
+        }while(rta != 1 && rta != 2 && rta != 3);
+
+        while(rta != 3){
+            switch(rta){
+                case 1: 
+                    edit_user(find_user);
+                    break;
+                case 2: 
+                    carrito();
+                    break;
+            }
 
             alert(`Hola ${log_User}, bienvenido!!
                 1) Editar datos de usuario.
                 2) Comprar productos.
                 3) Salir
             `);
-
             do{
                 rta = parseInt(prompt("¿Que desea hacer?"));
             }while(rta != 1 && rta != 2 && rta != 3);
+        }
+    } 
+}
 
-            while(rta != 3){
-                switch(rta){
-                    case 1: 
-                        edit_user(userLog);
-                        break;
-                    case 2: 
-                        carrito();
-                        break;
-                }
+//Función ordenar arrays de objetos
+const ordenar = arr => {
 
-                alert(`Hola ${log_User}, bienvenido!!
-                    1) Editar datos de usuario.
-                    2) Comprar productos.
-                    3) Salir
-                `);
-                do{
-                    rta = parseInt(prompt("¿Que desea hacer?"));
-                }while(rta != 1 && rta != 2 && rta != 3);
-            }
-        } 
-    }else{
-        alert("Bienvenido al panel de administración");
-        productos();
-    }
+    arr.sort((a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        }else if(a.name > b.name){
+            return 1;
+        }
+        
+        return 0;
+    });
+    
+    
+
+}
+
+//Funcion buscar usuario
+const search_user = (log_User, log_Pass) => {
+    const find_user = BD_Usuarios.find( e => {
+        if(e.user_name === log_User && e.pass === log_Pass){
+            return e;
+        }
+    });
+
+    return find_user;
 }
 
 //función editar usuario
@@ -118,27 +140,21 @@ const edit_user = user_Log => {
     let change_user = prompt("Ingrese nuevo nombre de usuario: ");
     let change_pass = prompt("Ingrese nueva contraseña: ");
 
-    user_Log.editar_usuario(change_name, change_lastName, change_user, change_pass);
-    alert(user_Log.mostrar_cambios());
-}
+    user_Log.name = change_name;
+    user_Log.last_name = change_lastName;
+    user_Log.user_name = change_user;
+    user_Log.pass = change_pass;
+    
+    alert(`
+        Se han aplicado los cambios en tus datos!
 
-//función agregar productos
-const productos = () => {
-    let rta = prompt("¿Desea agregar un nuevo producto?(si/no)");
+        Nombre: ${user_Log.name}
+        Apellidos: ${user_Log.last_name}
+        Nombre de usuario: ${user_Log.user_name}
+        Contraseña: ${user_Log.pass}
+    `);
 
-    if(rta.toLowerCase() == 'si'){
-        let tipo = prompt("Tipo de producto: ");
-        let precio = prompt("Precio de producto: ");
-        let stock = prompt("Stock de producto: ");
-        let value = prompt("Disponibilidad de producto");
-        
-        const producto1 = new Productos(tipo, precio, stock, value);
-        console.log(producto1);
-
-        if(producto1.stock <= 0){
-            producto1.value = false;
-        }
-    }
+    console.log(user_Log);
 }
 
 //función carrito
@@ -155,16 +171,16 @@ const carrito = () => {
         
         alert(`
             Los productos en stock son: 
-            Remeras personalizadas (RP) - $1450
-            Remeras de MI (RMI) - $1150
-            Remeras de desarrolladores (RD) - $1250
-            Remeras cartoons (RC) - $1250
-            Estampados (E) - $950
+            Indumentaria personalizadas (IP) - $1450
+            Indumentaria de MI (IMI) - $1150
+            Indumentaria de desarrolladores (ID) - $1250
+            Indumentaria cartoons (IC) - $1250
+            Indumentaria (E) - $950
         `);
 
         do{
             eleccion = prompt("¿Que producto desea comprar?");
-        }while( eleccion.toUpperCase() !== 'RP' && eleccion.toUpperCase() !== 'RMI' && eleccion.toUpperCase() !== 'RD' && eleccion.toUpperCase() !== 'RC' && eleccion.toUpperCase() !== 'E');
+        }while( eleccion.toUpperCase() !== 'IP' && eleccion.toUpperCase() !== 'IMI' && eleccion.toUpperCase() !== 'ID' && eleccion.toUpperCase() !== 'IC' && eleccion.toUpperCase() !== 'E');
 
         pago_Total = pago_Total + Comprar(eleccion);
 
@@ -193,24 +209,11 @@ const carrito = () => {
 const Comprar = compra => {
 
     let precio_Total = 0;
-
-    switch(compra.toUpperCase()){
-        case 'RP':
-            precio_Total = calcular_Precio(pRemeraPers);
-            break;
-        case 'RMI':
-            precio_Total = calcular_Precio(pRemeraMI);
-            break;
-        case 'RD':
-            precio_Total = calcular_Precio(pRemeraDev);
-            break;
-        case 'RC':
-            precio_Total = calcular_Precio(pRemeraCart);
-            break;   
-        case 'E':
-            precio_Total = calcular_Precio(pEstampado);
-            break;
-    }
+    BD_Productos.map( e => {
+        if( e.tipo === compra.toUpperCase()){
+            precio_Total += calcular_Precio(e.precio);
+        }
+    });
 
     return precio_Total;
 }
