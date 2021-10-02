@@ -1,7 +1,7 @@
 'use strict';
 
-import { Usuarios } from './_clases.js';
-import { BD_Productos, BD_Usuarios } from './_baseDatos.js';
+import { Usuarios } from '../js/_clases.js';
+import { BD_Productos, BD_Usuarios } from '../js/_baseDatos.js';
 
 let pago_Total = 0;
 //Funciones
