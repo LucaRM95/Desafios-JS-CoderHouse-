@@ -4,20 +4,151 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Aplicando descripción en la página para el SEO -->
+    <meta name="description" content="La mejor indumentaria la encontras con nosotros. Choose your side, choose Mala Influencia">
+    <meta name="keywoords" content="Indumentaria, ropa, Mala Influencia, Estampados, Diseño de indumentaria">
 
-    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-    <title>Desafio 1 - JavaScript</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <title>MI Indumentaria - Home</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Segundo desafio de JavaScript - CoderHouse</h1>
-    </div>
-    <hr>
-    <div class="container">
-        <h3>Gracias por su visita!!!</h3>
-    </div>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand animate__animated animate__fadeInLeft" href="./index.html">
+                <img src="./assets/img/Logo-MI.png" alt="" width="35" height="35" class="d-inline-block align-text-top">
+                Mala Influencia
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="./sections/nuestro-trabajo.html">Nuestro trabajo</a>
+                <a class="nav-link" href="./sections/productos.html">Productos</a>
+                <a class="nav-link" href="./sections/tiendas.html">Tiendas</a>
+                <a class="nav-link" href="./sections/ayuda.html">Ayuda</a>
+            </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="main-section">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="5000">
+                <img src="./assets/img/urban-bg3.webp" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="./assets/img/urban-bg.webp" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="./assets/img/urban-bg1.webp" class="d-block w-100" alt="...">
+              </div>
+            </div>
+        </div>
+
+        <div class="main-section__card animate__animated animate__fadeInLeft">
+            <div class="main-section__card--text">
+                <span>Indumentaria</span>
+                <h1>personalizada & propia</h1>
+            </div>
+            <button class="btn btn-outline-dark" onclick="location.href='./sections/productos.html'">Comprar</button>
+        </div>
+    </section>
+
+    <section class="publ-section">
+        <div class="publ-section__align">
+            <span class="publ-section__align--text animate__animated animate__fadeInLeft">Envíos gratis a todo el país</span>
+        </div>
+    </section>
+
+    <section class="presentation-section">
+        <div class="presentation-section__title animate__animated animate__fadeInLeft">
+            <span class="presentation-section__title--text">Choose your side</span>
+            
+            <div class="presentation-section__title--text_Primary">-</div>
+            
+            <span class="presentation-section__title--text_Primary">Choose Mala Influencia</span>
+        </div>
+
+        <div class="contain">
+          
+            <div class="contain__main" style="margin-top: 20rem;" data-aos="zoom-in">
+              <div id="video">
+                  <video autoplay loop muted playsinline>
+                      <source src="./assets/media/Estampados.mp4" type="video/mp4">
+                      <source src="./assets/media/Estampados.ogg" type="video/ogg">
+                  </video>
+              </div>
+              <div class="contain__main--text">
+                      <h2>Un poco sobre Mala Influencia</h2>
+                      <p>
+                          Somos un pequeño emprendimiento de indumentaria, diseño y estampados. Nuestros diseños son personalizados a gusto
+                          de nuestros clientes o predeterminados en stock.
+                          Trabajamos con todo tipo de indumentarias como remeras mangas cortas, largas, buzos con y sin capucha.
+                          No dudes en contactarnos ante cualquier tipo de consulta!!
+                      </p>
+              </div>
+            </div>
+  
+          </div>
+    </section>
+    
+    <footer style="color: white;">
+        <div class="footer-section">
+            <div class="footer-section__contact" data-aos="zoom-in">
+                <span>SIGUE CONECTADO</span>
+                <div class="footer-section__contact--redes">
+                    <a href="https://www.instagram.com/malainfluencia.ind/" target="_blank">
+                        <img src="./assets/img/instagram.png" alt="">
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="./assets/img/facebook.png" alt="">
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=%2B5401131728677&text=me+interesa+saber+mas&app_absent=0" target="_blank">
+                        <img src="./assets/img/whatsapp.png" alt="">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="./assets/img/twitter.png" alt="">  
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section__contact" data-aos="zoom-in">
+                <span>ESCRÍBENOS</span>
+                <form action="" class="footer-section__contact--form">
+                    <input class="form-control" type="email" id="email" placeholder="Ingresa tu email aquí*">
+                    <input type="submit" value="Unirse" class="btn btn-outline-light">
+                </form>
+            </div>
+            <div class="footer-section__contact" data-aos="zoom-in">
+                <span>¿NECESITAS AYUDA?</span>
+                <p>malaInfluencia@gmail.com</p>
+            </div>
+        </div>
+        <p>Developed by &copy;LucaRM Design - 2021</p>
+    </footer>
 
     <script src="./js/app.js" type="module"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,11 @@
+@import "../_general-settings";
+@import "../responsive";
+
+.navbar{
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+}
+.bg-dark{
+    background-color: rgba(34, 38, 42, 0.9) !important;
+}

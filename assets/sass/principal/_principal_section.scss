@@ -1,0 +1,405 @@
+@import "../general-settings";
+@import "../responsive";
+
+*, html{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    body{
+        background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url(../img/bg2.jpg);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        color: white;
+        width: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        line-height: 1.6;
+
+        /*Not found page*/
+        #not-found-404{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $color_gradient_header;
+            border-radius: 3px;
+            margin: 2rem;
+            padding: 2rem;
+            // margin-bottom: 50px;
+            .not-found__text{
+                text-align: center;
+                margin-bottom: 5rem;
+                h1{
+                    color: $MI_color_primary;
+                    font-weight: bold;
+                }
+                h3{
+                    color: #444;
+                }
+            }
+            .btn{
+                width: auto;
+            }
+        }
+        /* Clases e IDs de los main*/
+        #help-section{
+            background-image: url("../img/help-bg.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #product-section{
+            background-image: url("../img/products-bg.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #work-section{
+            background-image: url("../img/our-work.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #shop-section{
+            background-image: url("../img/shop-bg.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .main-section{
+            @include display(flex, row, center, center);
+            min-height: 610px;
+            &__card{
+                @include display(flex, column, space-around, center);
+                background-color: $MI-color-primary;
+                border-radius: 5px;
+                position: absolute;
+                z-index: 2;
+                width: 30%;
+                height: 250px;
+                &--text{
+                    text-align: center;
+                    line-height: 3rem;
+                    span{
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: #ccc;
+                    }
+                    h1{
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        color: white;
+                    }
+                }
+            }
+        }
+        
+        .carousel{
+            height: 606px;
+        }
+
+        .carousel1{
+            height: auto!important;
+        }
+
+        .w-100{
+            width: auto !important;
+            height: auto;
+        }
+
+        .w-101{
+            width: 100% !important;
+        }
+
+        .btn{
+            width: 30%;
+        }
+        
+        .publ-section{
+            @include display(flex, row, center, center);
+            background-color: $MI-color-primary;
+            height: 44px;
+            &__align{
+                @include display(flex, row, center, center);
+                &--text{
+                    font-weight: bold;
+                    color: white;
+                    letter-spacing: 0.3rem;
+                    word-spacing: 0.6rem;
+                }
+            }
+        }
+        
+        .presentation-section{
+            @include display(flex, column, flex-start, center);
+            min-height: 1020px;
+            &__title{
+                @include display(flex, column, flex-start, center);
+                margin-top: 4rem;
+                background-color: rgba(33, 34, 42, .9);
+                position: absolute;
+                border-radius: 3px;
+                width: 50%;
+                height: 377px;
+                &--text{
+                    margin-top: 4rem;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 1.6rem;
+                }
+                &--text_Primary{
+                    color: white;
+                    font-weight: bold;
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        .contain{
+            @include flex_column_minH;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4rem;
+            &__main{
+                background-color: $MI-color-primary !important;
+                border-radius: 3px;
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+                width: 40%;
+                height: auto;
+                &--text{
+                    @include display(flex, column, center, center);
+                    height: 350px;
+                    justify-content: space-evenly;
+                    h2, p, strong, span, form{
+                        text-align: center;
+                        margin-left: 2rem;
+                        margin-right: 2rem;
+                        line-height: 2rem;
+                        width: 60%;
+                    } 
+                }
+                #video{
+                    display: flex;
+                    justify-content: center;
+                    video{
+                        width: 97%;
+                        border-radius: 3px;
+                        margin: 10px;
+                    }
+                }
+            }
+            &__cards{
+                max-width: 700px;
+                margin-bottom: 3.5rem !important;
+                width: 25rem;
+                &--img_heigth{
+                    max-width: 100%;
+                    height: 176px;
+                }
+            }
+            &__products{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 70%;
+                justify-items: center;
+                .btn{
+                    width: 43% ;
+                }
+            }
+        }
+        
+        .content-cards{
+            @include flex_column;
+            margin-top: 5rem !important;
+        }
+        /* Text format BEM*/
+        .text{
+            @include flex_column;
+
+            &__content{
+                margin-left: 10px;
+                &--title{
+                    h3, h2, h1{
+                        color: #ccc;
+                        font-weight: bold;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+
+        .container-main{
+            @include flex_column_minH;
+            width: 100%;
+        }
+
+        .bg-MI{
+            background-color: $MI-color-primary;
+        }
+
+        /* Seccion de nuestro trabajo BEM*/
+        .work-section{
+            display: flex;
+            justify-content: center;
+            margin-top: 5rem;
+            margin-bottom: 2rem;
+            &__item{
+                // background-color: $MI_color_primary;
+                background-color: $MI-color-primary;
+                width: 50%;
+                border-radius: 3px;
+                margin: 1rem;
+                padding: 1rem;
+                &--text{
+                    h1, h2, h3{
+                        font-weight: bold;
+                        color: black;
+                    }
+                    p{
+                        color: #ccc;
+                    }
+                }
+            }
+        }
+
+
+        /* Seccion ayuda BEM*/
+        .bg-hs{
+            background-color: #444;
+            border-radius: 3px;
+            width: 60%;
+        }
+
+        .bg-hsa{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #444;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px; 
+            p{
+                font-weight: bold;
+                font-size: 17px;
+                margin-bottom: 0px;
+            }
+        }
+
+        .search-bar{
+            display: flex;
+            justify-content: center;
+            margin-top: 8rem;
+            input[type="text"]{
+                width: 30%;
+                margin-right: .9rem;
+                border-radius: 3px;
+                border: none;
+                text-align: center;
+            }
+            input[type="text"]::placeholder{
+                text-align: center;
+            }
+            input[type="button"]{
+                width: 5%;
+            }
+        }
+
+        .help_section{
+            @include flex_column_minH;
+            align-items: center;
+            justify-content: center;
+            width: (50%)*2;
+            height: auto;
+            min-height: auto;
+            margin-top: 4rem;
+            &__item{
+                @include flex_column;
+                @extend .contain__main;
+                align-items: center;
+                justify-content: flex-start;
+                width: 50%;
+                height: auto;
+                &--text{
+                    text-align: center;
+                    h1{
+                        font-weight: bold;
+                    }
+                    h2{
+                        color: #ccc;
+                    }
+                }
+            } 
+        }
+
+        /* Seccion contacto BEM*/
+        .contact_section{
+            @extend .contain;
+            margin-top: 5rem;
+            &__item{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: 20px;
+                &--bg{
+                    @include display(flex, column, center, center);
+                    text-align: center;
+                    background-color: $MI-color-primary;
+                    border-radius: 3px;
+                    width: 55%;
+                    padding: 3rem;
+                    h2{
+                       margin-bottom: 2rem;
+                       font-weight: bold;
+                       letter-spacing: 0.5rem; 
+                    }
+                    span{
+                        color: #ccc;
+                        font-weight: bold;
+                        margin-bottom: 2rem;
+                    }
+                    .shop-iframe{
+                        display: flex;
+                        justify-content: space-evenly;
+                        width: 100%;
+                        margin-bottom: 2rem;
+                        margin-top: 2rem;
+                        iframe{
+                            width: 300px;
+                            height: 280px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .accordion{
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        .accordion-body{
+            color: #888585;
+        }
+
+        #content-form{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-start;
+        }
+
+        form > label, h5{
+            font-family: Helvetica, bold;
+            color: black;
+        }
+
+        form input, select{
+            padding: 3px;
+            margin: 5px;
+        }
+    }
+}
