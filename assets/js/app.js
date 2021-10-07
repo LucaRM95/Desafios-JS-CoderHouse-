@@ -1,6 +1,6 @@
 'use strict';
 
-import { products_cards, shop_cards } from './_funciones.js';
+import { products_cards, shop_cards } from '/_funciones.js';
 //import { logear_Registrar } from '../js/_funciones.js';
 const title = document.querySelector("title").text;
 //logeo en página web
