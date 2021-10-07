@@ -1,6 +1,6 @@
 'use strict';
 
-import { BD_Productos, BD_Tiendas } from '../_baseDatos.js';
+import { BD_Productos, BD_Tiendas } from './_baseDatos.js';
 
 const shop_cards = () => {
 
