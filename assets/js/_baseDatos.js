@@ -97,7 +97,7 @@ const BD_Productos = [
     },
 ]
 
-export default {
+export {
     BD_Usuarios,
     BD_Productos,
     BD_Tiendas

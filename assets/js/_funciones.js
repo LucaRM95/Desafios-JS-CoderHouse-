@@ -61,7 +61,7 @@ const products_cards = () => {
     });
 }
 
-export default {
+export {
     products_cards,
     shop_cards
 }
