@@ -1,6 +1,13 @@
 'use strict';
 
-import { logear_Registrar } from '../js/_funciones.js';
-
+import { products_cards, shop_cards } from './_funciones.js';
+//import { logear_Registrar } from '../js/_funciones.js';
+const title = document.querySelector("title").text;
 //logeo en página web
-logear_Registrar();
+//logear_Registrar();
+
+if(title === 'MI Indumentaria - Productos'){
+    products_cards();
+}else if(title === 'MI Indumentaria- Tiendas'){
+    shop_cards();
+}
