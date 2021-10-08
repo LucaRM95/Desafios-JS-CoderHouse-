@@ -15,8 +15,7 @@ const shop_cards = () => {
                     <p>${e.location}</p>
                     <p>${e.phone}</p>
                     
-                    <p>${e.open_hour[0]}</p>
-                    <p>${e.open_hour[1]}</p>
+                    ${e.open_hour.map(i => `<p>${i}</p>`)}
                 </div>
 
                 <iframe src="${e.map_location}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -41,9 +40,7 @@ const products_cards = () => {
                 <li class="size">Talles: ${e.talles}</li>
                 <li class="tags">
                     <ul>
-                    <li><a href="#">${e.tags[0]}</a></li>
-                    <li><a href="#">${e.tags[1]}</a></li>
-                    <li><a href="#">${e.tags[2]}</a></li>
+                        ${e.tags.map(i => `<li><a href="#">${i}</a></li>`)}
                     </ul>
                 </li>
                 </ul>
