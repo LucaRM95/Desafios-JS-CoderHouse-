@@ -1,12 +1,38 @@
-class Usuarios {
-    constructor(name, last_name, user_name, pass){
-        this.name = name;
-        this.last_name = last_name;
-        this.user_name = user_name;
-        this.pass = pass;
+import { BD_Productos } from './_baseDatos.js'; 
+
+class Carrito{
+
+    agregarProducto(e, id){
+        if(e.target.classList.contains("agregar-carrito")){
+            const producto = e.target.parentElement.parentElement.parentElement;
+            
+            BD_Productos.find( p => {
+                if( p.tipo === producto.id){
+                    //const save_product = "producto"+p.tipo;
+                    let save_products = [];
+
+                    if(localStorage.length === 0 && save_products.length === 0){
+                        save_products.push(p);
+                        localStorage.setItem("carrito", JSON.stringify(save_products));
+                    }else{
+                        save_products = JSON.parse(localStorage.getItem('carrito'));
+                        save_products.push(p);
+                        localStorage.setItem("carrito", JSON.stringify(save_products));
+                    }
+                }
+            })
+        }
+    }
+
+    borrarProducto(e){
+        const storage = JSON.parse(localStorage.getItem("carrito"));
+        const del = storage.findIndex(item => item.tipo === e.target.id);
+        
+        storage.splice(del, 1);
+        localStorage.setItem("carrito", JSON.stringify(storage));
     }
 }
 
 export {
-    Usuarios
+    Carrito
 }
