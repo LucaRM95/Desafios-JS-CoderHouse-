@@ -2,13 +2,13 @@ import { BD_Productos } from './_baseDatos.js';
 
 class Carrito{
 
+
     agregarProducto(e){
         if(e.target.classList.contains("agregar-carrito")){
             const producto = e.target.parentElement.parentElement.parentElement;
 
             BD_Productos.find( p => {
                 if( p.tipo === producto.id){
-                    //const save_product = "producto"+p.tipo;
                     let save_products = [];
 
                     if(localStorage.length === 0 && save_products.length === 0){
@@ -19,7 +19,6 @@ class Carrito{
                         save_products.push(p);
                         localStorage.setItem("carrito", JSON.stringify(save_products));
                     }
-
                 }
             })
         }
