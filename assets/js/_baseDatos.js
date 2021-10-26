@@ -1,32 +1,5 @@
 'use strict'; 
 
-const BD_Usuarios = [
-    {
-        name: "Luca",
-        last_name: "Rojas Massey",
-        user_name: "LucaRM95",
-        pass: "Luca24416628"
-    },
-    {
-        name: "Fernando",
-        last_name: "Pavón",
-        user_name: "FerP94",
-        pass: "Fer1234P"
-    },
-    {
-        name: "Camila",
-        last_name: "Viegas",
-        user_name: "CamiV01",
-        pass: "Cami12345V"
-    },
-    {
-        name: "María José",
-        last_name: "Rojas Massey",
-        user_name: "MajoRM01",
-        pass: "Majo24416628"
-    }
-];
-
 const BD_Tiendas = [
     {
         name: "Mala Influencia - Merlo",
@@ -98,7 +71,6 @@ const BD_Productos = [
 ]
 
 export {
-    BD_Usuarios,
     BD_Productos,
     BD_Tiendas
 }
