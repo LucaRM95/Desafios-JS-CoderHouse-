@@ -1,18 +1,21 @@
+import { FinalizarCompra } from "./_finalizarCompra.js";
 import { Orden } from "./_render.js";
 
-const cardDrop = document.getElementById('card-dropdown');
+const cardDrop = document.getElementById('card-dropdown'); 
 let activeDropdown;
 
 Orden.cargar_orden();
+FinalizarCompra.finalizar();
 
 cardDrop.addEventListener('click',function(){
   let node;
-  for (let i = 0; i < this.childNodes.length-1; i++)
+  for (let i = 0; i < this.childNodes.length-1; i++){
     node = this.childNodes[i];
     if (node.className === 'dropdown-select') {
       node.classList.add('visible');
        activeDropdown = node; 
-    };
+    }
+  }
 })
 
 window.onclick = function(e) {

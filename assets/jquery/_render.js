@@ -1,13 +1,15 @@
-
 export class Orden {
     static cargar_orden = () => {
         const storage = JSON.parse(localStorage.getItem("carrito"));
+        let IVA = 0; 
+        let precio_IVA = 0;
+        let total = 0;
         const envio = 750;
-        
+
         storage.map( e => {
-            const IVA = (e.precio * e.cantidad)* 0.21;
-            const precio_IVA = (e.precio * e.cantidad) + IVA;
-            const total = precio_IVA + envio;
+            total += (e.precio * e.cantidad);
+            IVA = total*0.21 
+            precio_IVA = total + IVA;
 
             $("#order-content").append(`
                 <table class='order-table'>
@@ -28,9 +30,8 @@ export class Orden {
                         </tr>
                     </tbody>
                 </table>
-                <div class='line'></div>
             `);
-            $("#order-content").append(`
+            $("#total-price").html(`
                 <div class='total'>
                     <span style='float:left;'>
                         <div class='thin dense'>IVA 21%</div>
@@ -40,25 +41,10 @@ export class Orden {
                     <span style='float:right; text-align:right;'>
                         <div class='thin dense'>$${IVA}</div>
                         <div class='thin dense'>$${envio}</div>
-                        $${total}
+                        $${precio_IVA+envio}
                     </span>
                 </div>
             `)
         })
     }
 }
-
-/*
-    <div class='total'>
-        <span style='float:left;'>
-            <div class='thin dense'>VAT 19%</div>
-            <div class='thin dense'>Delivery</div>
-            TOTAL
-        </span>
-        <span style='float:right; text-align:right;'>
-            <div class='thin dense'>$68.75</div>
-            <div class='thin dense'>$4.95</div>
-            $435.55
-        </span>
-    </div>
-*/

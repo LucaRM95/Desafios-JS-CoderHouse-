@@ -38,14 +38,7 @@ const pago_total = (products_storaged) => {
     tb_precio.textContent = `Total: $${precio_total}`;
 
     comprar.addEventListener("click", () => {
-        alert(
-        `
-            Compra exitosa! 
-            Nos contactaremos vía mail para informarte del envío.
-            Muchas gracias por elegir Mala Influencia Ind.
-        `);
-        //pago();
-        localStorage.clear();
+        window.location = "../../sections/pago.html";
         Interfaz.actualizar_carrito();
     });
 }

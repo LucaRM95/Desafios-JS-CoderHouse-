@@ -14,7 +14,12 @@ h2 {
   font-size:1.2rem;
   
 }
-.container {
+
+.jquery-modal.blocker{
+  z-index: 20 !important;
+}
+
+.contain {
   height:100%;
   -webkit-box-pack:center;
   -webkit-justify-content:center;
@@ -145,6 +150,8 @@ ul li:hover {
 .pay-btn {
   border:none;
   background:#22b877;
+  text-decoration: none;
+  text-align: center;
   line-height:2em;
   border-radius:10px;
   font-size:19px;
