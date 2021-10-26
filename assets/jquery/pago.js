@@ -5,7 +5,24 @@ const cardDrop = document.getElementById('card-dropdown');
 let activeDropdown;
 
 Orden.cargar_orden();
-FinalizarCompra.finalizar();
+
+$(document).ajaxSend(() => {
+  $("#overlay").fadeIn(300);　
+});
+      
+$('.pay-btn').click(() => {
+  $.ajax({
+      type: 'GET',
+      success: (data) => {
+          console.log(data);
+      }
+  }).done(() => {
+      setTimeout(() => {
+        $("#overlay").fadeOut(300);
+        FinalizarCompra.finalizar();
+      },500);
+  });
+});	
 
 cardDrop.addEventListener('click',function(){
   let node;
