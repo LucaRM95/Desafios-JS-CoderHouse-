@@ -10,12 +10,9 @@ $(document).ajaxSend(() => {
   $("#overlay").fadeIn(300);　
 });
       
-$('.pay-btn').click(() => {
+$('.pay-btn').on("click",() => {
   $.ajax({
-      type: 'GET',
-      success: (data) => {
-          console.log(data);
-      }
+    type: 'GET',
   }).done(() => {
       setTimeout(() => {
         $("#overlay").fadeOut(300);

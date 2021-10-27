@@ -1,4 +1,4 @@
-import { BD_Tiendas } from '../js/_baseDatos.js';
+import { BD_Tiendas } from '../_baseDatos.js';
 
 const shop_cards = () => {
 
