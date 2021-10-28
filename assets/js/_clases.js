@@ -22,7 +22,6 @@ class Carrito {
             Storage.guardar_storage("carrito", carrito);
         }else{
             let busqueda = carrito.findIndex(item => item.tipo === id);
-            console.log(busqueda)
             if(busqueda !== -1){
                 //Incremento el contador de cantidad
                 carrito[busqueda].cantidad++;

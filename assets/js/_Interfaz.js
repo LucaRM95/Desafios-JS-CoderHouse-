@@ -1,6 +1,7 @@
 import { Storage } from "./_Storage.js";
 import { BD_Productos } from './_baseDatos.js';
 import { pago_total } from "./_funciones.js";
+import { PrecioDolar } from "./jquery/_ajax.js";
 
 export class Interfaz {
     static actualizar_carrito() {
@@ -68,8 +69,11 @@ export class Interfaz {
     }
     static mostrar_productos() {
             const section = document.querySelector(".grid-products");
-            BD_Productos.map(e => {
-                        section.innerHTML += `
+            const productos = PrecioDolar(BD_Productos);
+            productos.map(e => {
+                console.log(e)
+                console.log(e.precio) 
+                section.innerHTML += `
                 <div id="${e.tipo}" class="blog-card" data-aos="zoom-in">
                     <div class="meta">
                         <div class="photo" style="background-image: url(${e.foto});"></div>

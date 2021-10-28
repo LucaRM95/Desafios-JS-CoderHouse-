@@ -29,7 +29,7 @@ const BD_Productos = [
         description: "Indumentaria con estampados creados por la propia Mala influencia, estate atento para lucir como un verdadero Mala Influencia!",
         talles: "XL, L, S",
         tags: ["Mala Influencia", "De la casa", "Diseños"],
-        precio: 1450,
+        precio: 7,
         stock: 20
     },
     {
@@ -41,7 +41,7 @@ const BD_Productos = [
         description: "Si lo tuyo es el gaming luci a la moda con tus marcas favoritas de gaming y hardware informático. Que no te averguence tu amor por la tecnología!",
         talles: "XXL, XL, L",
         tags: ["Intel", "Nvidia", "Gaming"],
-        precio: 1150,
+        precio: 8.5,
         stock: 25
     },
     {
@@ -53,7 +53,7 @@ const BD_Productos = [
         description: "Si sos programador no podes dejar pasar la oportunidad de lucir tus lenguajes favoritos en todo lugar!",
         talles: "L, S, XS",
         tags: ["React", "NodeJS", "JavaScript"],
-        precio: 1250,
+        precio: 8.5,
         stock: 10
     },
     {
@@ -65,7 +65,7 @@ const BD_Productos = [
         description: "Si sos fanatico de Rick & Morty, Billy y Mandy o cualquier cartoon, que no te averguence caminar con ellos en tu ropa!",
         talles: "XXL, L, S",
         tags: ["RickAndMorty", "Cartoons", "BillyAndMandy"],
-        precio: 1250,
+        precio: 8,
         stock: 5
     },
 ]

@@ -41,7 +41,7 @@ export class Orden {
                     <span style='float:right; text-align:right;'>
                         <div class='thin dense'>$${IVA}</div>
                         <div class='thin dense'>$${envio}</div>
-                        $${precio_IVA+envio}
+                        $${Math.round(precio_IVA+envio)}
                     </span>
                 </div>
             `)
